@@ -1,0 +1,6 @@
+#!/bin/bash
+
+docker run -it -d \
+	-h server.lapd.com \
+	--name ldap \
+ldap

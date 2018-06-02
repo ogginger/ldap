@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+#Install slapd: LDAP Server
+/home/config/install_ldap
+echo "Installed ldap."
+echo "Wait while slapd configures itself..."
+sleep 2
+echo "Finished initial configuration." 
+
+#Change LDAP configuration file.
+mv /home/config/ldap.conf /etc/ldap/ldap.conf
+
+#Reconfigure slapd.
+/home/config/reconfigure_ldap
+echo "Reconfigured LDAP."
+
+echo "Starting slapd:"
+service slapd start
+

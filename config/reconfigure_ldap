@@ -1,0 +1,43 @@
+#!/usr/bin/expect -f
+
+set timeout 120
+
+spawn dpkg-reconfigure slapd
+
+expect "Omit OpenLDAP server configuration? \\\[yes/no\\\] " {
+	send "no\n"
+}
+
+expect "DNS domain name: " {
+	send "ldap.com\n"
+}
+
+expect "Organization name: " {
+	send "ldap.com\n"
+}
+
+expect "Administrator password: " {
+	send "root_password\n"
+}
+
+expect "Confirm password: " {
+	send "root_password\n"
+}
+
+expect "Database backend to use: " {
+	send "2\n"
+}
+
+expect "Do you want the database to be removed when slapd is purged? \\\[yes/no\\\] " {
+	send "no\n"
+}
+
+expect "Move old database? \\\[yes/no\\\] " {
+	send "yes\n"
+}
+
+expect "Allow LDAPv2 protocol? \\\[yes/no\\\] " {
+	send "no\n"
+}
+
+interact

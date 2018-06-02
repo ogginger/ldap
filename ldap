@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker exec ldap $1

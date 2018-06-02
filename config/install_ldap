@@ -1,0 +1,15 @@
+#!/usr/bin/expect -f
+
+set timeout 120
+
+spawn apt-get install -y slapd
+
+expect "Administrator password: " {
+	send "root_password\n"
+	puts "Sent password."
+}
+
+expect "Confirm password: " {
+	send "root_password\n"
+	puts "Confirmed password."
+} 
